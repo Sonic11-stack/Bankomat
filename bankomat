@@ -1,0 +1,38 @@
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) throws Exception {
+        User t = new User("Валя", 11000);
+        t.minus();
+        t.proverka();
+     }
+}
+class Bankomat {
+    public int money = 10000;
+}
+class User extends Bankomat {
+    public int score = 0;
+    public int zapros;
+    public String name;
+    public User (String name,int zapros) {
+        this.name = name;
+        this.zapros = zapros;
+    }
+    public void minus () {
+        System.out.println("Запрос на вывод средств: " + zapros);
+    }
+    public void proverka () {
+        System.out.println("Проверка");
+        if (zapros > money) {
+            System.out.println("Невозможно вывести");
+        }
+        else {
+            money -= zapros;
+            score += zapros;
+            System.out.println("Вывод успешно завершен");
+            System.out.println("Остаток в банкомате: " + money);
+            System.out.println("На счету: " + score);
+        }
+    }
+}
